@@ -25,7 +25,7 @@ public class MainPage extends BaseActions {
     public void completeSecondPartOfRegistration(){
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement(Locators.BUTTON_NEXT).click();
-        driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(generateNewNumber(Data.nickname, 5));
+        driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys((Data.nickname));
         driver.findElement(By.cssSelector("#daySelect")).click();
         driver.findElement(By.xpath("//li[@data-handler='selectDay']//a[text()='2']")).click();
         driver.findElement(By.cssSelector("#monthSelect")).click();
