@@ -4,7 +4,8 @@ public class Locators {
 
     //Media Page
     public static final By LINK_MEDIA = By.cssSelector("a[href='https://romanceabroad.com/media/index']");
-
+    public static final By IFRAME_VIDEO = By.xpath("//iframe[@src='https://www.youtube.com/embed/RRECuJzm3IY?start=85']");
+    public static final By BUTTON_PLAY = By.xpath("//iframe[@src='https://www.youtube.com/embed/RRECuJzm3IY?start=85']");
     //Registration
     public static final By BUTTON_REGISTRATION = By.xpath("//button[@id='show-registration-block']");
     public static final By BUTTON_NEXT = By.xpath("//button[@data-action='next-page'][text()='Next']");

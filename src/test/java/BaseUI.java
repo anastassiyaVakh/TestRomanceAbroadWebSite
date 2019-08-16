@@ -8,6 +8,11 @@ public class BaseUI {
     WebDriver driver;
     WebDriverWait wait;
     String mainUrl = "https://romanceabroad.com/";
+    MainPage mainPage;
+    MediaPage mediaPage;
+    SearchPage searchPage;
+
+
 
     @BeforeMethod
     public void setUp(){
@@ -15,6 +20,10 @@ public class BaseUI {
         System.setProperty ("webdriver.chrome.driver","chromedriver");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 20);
+        mainPage = new MainPage(driver, wait);
+        mediaPage = new MediaPage(driver, wait);
+        searchPage = new SearchPage(driver,wait);
+
         driver.manage().window().maximize();
         driver.get(mainUrl);
     }
@@ -23,6 +32,7 @@ public class BaseUI {
     public void afterActions() {
         driver.quit();
     }
+
 }
 
 
