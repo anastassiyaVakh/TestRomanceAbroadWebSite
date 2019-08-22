@@ -1,6 +1,9 @@
 public class Data {
-
+    //Main page data
     public static final String mainUrl = "https://romanceabroad.com/";
+    public static final String expectedUrlPrettyWomen = "https://romanceabroad.com/users/search";
+    public static final String expectedTitleHowWeWork = "Ukranian women for marriage";
+    public static final String expectedTitlePrettyWomen = "Single Ukranian women online";
 
     //Registration data
     public static final String email = "test@gmail.com";
@@ -19,7 +22,7 @@ public class Data {
     public static final String searchProduct = "Romantic tour";
     public static final String expectedUrlSearch = "https://romanceabroad.com/users/search";
 
-    //Gifts
+    //Gifts Page data
     public static final String expectedUrlGifts = "https://romanceabroad.com/store/category-sweets";
     public static final String gift = "teddy";
 }

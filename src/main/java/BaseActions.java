@@ -19,9 +19,27 @@ public class BaseActions {
         this.driver = driver;
         this.wait = wait;
     }
+
+    public void javaWait(int ms){
+        try{
+            Thread.sleep (ms);
+        }catch (InterruptedException e){
+            e.printStackTrace ();
+        }
+    }
+    public void javaWaitSec(int sec){
+        try{
+            Thread.sleep (sec * 1000);
+        }catch (InterruptedException e){
+            e.printStackTrace ();
+        }
+    }
+
+
     public static String generateNewNumber (String name, int length){
         return name + RandomStringUtils.random(length, "125466");
     }
+
 
     public void getDropDownListByIndex(WebElement element, int index){
         Select select = new Select(element);
@@ -55,7 +73,7 @@ public class BaseActions {
         ajaxClick(driver.findElements(by).get(index));
     }
 
-    public void performClick(By locator){ // IE
+    public void performClick(By locator){
         WebElement element = driver.findElement(locator);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
@@ -81,10 +99,6 @@ public class BaseActions {
     public void getNavigateToLinkPage(By locator){driver.findElement(locator).click();}
 
 
-    /*public void getDropDownListByText(WebElement element, String text){
-        Select select = new Select(element);
-        select.selectByIndex(text);
-    }*/
 
     public void getDropDownListByValue(WebElement element, String value){
         Select select = new Select(element);

@@ -15,7 +15,6 @@ public class MainPage extends BaseActions {
 
     public void signIn(){
         driver.findElement (Locators.BUTTON_LOGIN).click ();
-
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement (Locators.TEXT_FIELD_LOGIN_EMAIL).sendKeys (Data.email);
     }

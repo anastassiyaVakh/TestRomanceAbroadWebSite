@@ -19,6 +19,7 @@ public class BaseUI {
     SearchPage searchPage;
     TourToUkrainePage tourToUkrainePage;
     GiftsPage giftsPage;
+    ContactUsPage contactUsPage;
 
 
 
@@ -59,6 +60,7 @@ public class BaseUI {
         searchPage = new SearchPage(driver, wait);
         tourToUkrainePage = new TourToUkrainePage (driver,wait);
         giftsPage = new GiftsPage (driver,wait);
+        contactUsPage = new ContactUsPage (driver,wait);
         driver.manage().window().maximize();
         driver.get(mainUrl);
     }

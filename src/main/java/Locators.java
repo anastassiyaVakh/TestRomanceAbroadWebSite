@@ -7,6 +7,9 @@ public class Locators {
     public static final By LINK_PHOTO = By.cssSelector("a[@href='https://romanceabroad.com/media/photo']");
     public static final By LINK_VIDEO = By.cssSelector("a[@href='https://romanceabroad.com/media/video]");
     public static final By LINK_ALBUMS = By.cssSelector("a[@href='https://romanceabroad.com/media/albums]");
+    public static final By GALLERY_FILTERS = By.xpath ("//ul[@id='gallery_filters']//li");
+
+    public static final By LINK_JOIN_TODAY = By.xpath ("//div[@class='col-lg-12 text-center']//a[@href='#']");
     //Main Page
     public static final By NAVIGATION_MENU = By.xpath("//ul[@class='navbar-nav']//li");
     public static final By TITLE_OF_PAGE = By.cssSelector("//hi");
@@ -14,6 +17,7 @@ public class Locators {
     public static final By BUTTON_PLAY = By.xpath("//button[@class='ytp-large-play-button ytp-button']");
     public static final By BUTTON_LOGIN = By.cssSelector("#ajax_login_link");
     public static final By TEXT_FIELD_LOGIN_EMAIL = By.cssSelector ("#email");
+    public static final By IMAGES = By.xpath ("//a[@class='g-pic-border g-rounded']");
     //Registration
     public static final By BUTTON_REGISTRATION = By.cssSelector("#show-registration-block");
     public static final By BUTTON_NEXT = By.xpath("//button[@data-action='next-page'][text()='Next']");
@@ -45,9 +49,14 @@ public class Locators {
     public static final By SEARCH_FIELD_PRODUCT = By.cssSelector ("#search_product");
     public static final By BUTTON_QUICK_VIEW = By.xpath("//buttton[@class='btn btn-primary']");
     public static final By BUTTON_SEARCH_PRODUCT = By.cssSelector("#search_friend");
+    public static final By FOOTER_OPTIONS = By.xpath ("//div[@class='footer-menu-list-group-item-text']");
+    public static final By LINK_CONTACT_US = By.xpath ("//a[@id='footer_footer-menu-help-item_footer-menu-tickets-item']");
 
     //Gifts Page
     public static final By LINK_GIFTS = By.xpath("//a[@href='https://romanceabroad.com/store/category-sweets']");
     public static final By LINK_TEDDY_BEARS = By.xpath ("//a[@href='https://romanceabroad.com/store/sweets/11-teddy_bear']");
     public static final By LINK_FLOWER_BASKET = By.xpath ("https://romanceabroad.com/store/sweets/12-flower_basket");
+
+    //Contact Us Page
+    public static final By LIST_REASON = By.xpath ("//select[@name='id_reason']");
 }
