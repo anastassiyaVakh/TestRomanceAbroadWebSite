@@ -3,7 +3,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.jvm.hotspot.utilities.Assert;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -14,35 +13,62 @@ public class MainPage extends BaseActions {
         super(driver, wait);
     }
 
+    public void signIn(){
+        driver.findElement (Locators.BUTTON_LOGIN).click ();
+
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.findElement (Locators.TEXT_FIELD_LOGIN_EMAIL).sendKeys (Data.email);
+    }
+
     public void clickJoinButton() {
         driver.findElement(Locators.BUTTON_REGISTRATION).click();
     }
 
-    public void completeFirstPartOfRegistration() {
+    public void completeFirstPartOfRegistration( String email, String password) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.findElement(Locators.TEXT_FIELD_EMAIL).sendKeys(Data.email);
+        driver.findElement(Locators.TEXT_FIELD_EMAIL).sendKeys(email);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.TEXT_FIELD_PASSWORD)));
-        driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(Data.password);
+        driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(password);
         wait.until(ExpectedConditions.elementToBeClickable(Locators.BUTTON_NEXT));
     }
 
-    public void completeSecondPartOfRegistration() {
+    public void completeSecondPartOfRegistration(String nickname, String phone, String month, String day, String year, String city, String location) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement(Locators.BUTTON_NEXT).click();
-        driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(generateNewNumber(Data.nickname, 5));
-        driver.findElement(By.cssSelector("#daySelect")).click();
-        driver.findElement(By.xpath("//li[@data-handler='selectDay']//a[text()='2']")).click();
-        driver.findElement(By.cssSelector("#monthSelect")).click();
-        driver.findElement(By.xpath("//li[@data-handler='selectMonth']//a[text()='May']")).click();
-        driver.findElement(By.cssSelector("#yearSelect")).click();
-        driver.findElement(By.xpath("//li[@data-handler='selectYear']//a[text()='1995']")).click();
-        driver.findElement(Locators.TEXT_FIELD_PHONE).sendKeys(Data.phone);
-        WebElement checkboxConfirmation = driver.findElement(By.cssSelector("input#confirmation"));
-        ;
+        driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(nickname);
+
+        driver.findElement(Locators.LIST_DAY).click();
+        clickValueOfLists (Locators.LIST_DAY_VALUE, day);
+
+        driver.findElement(Locators.LIST_MONTH).click();
+        clickValueOfLists (Locators.LIST_MONTH_VALUE, month);
+
+        driver.findElement(Locators.LIST_YEAR).click();
+       clickValueOfLists (Locators.LIST_YEAR_VALUE, year);
+
+        driver.findElement(Locators.TEXT_FIELD_PHONE).sendKeys(phone);
+        WebElement checkboxConfirmation = driver.findElement(Locators.CHECKBOX_TERMS);
         if (!checkboxConfirmation.isSelected()) {
             checkboxConfirmation.click();
+
+            driver.findElement (Locators.AUTOFILLING_FORM_LOCATION).clear();
+            driver.findElement(Locators.AUTOFILLING_FORM_LOCATION).sendKeys (city);
+            clickValueOfLists (Locators.LIST_VALUE_LOCATION, location);
         }
     }
+
+    public void clickValueOfLists (By locator, String text){
+        List<WebElement>elements = driver.findElements (locator);
+        for (int i = 0; i <elements.size (); i ++){
+            WebElement elementOfList = elements.get(i);
+            String value = elementOfList.getText ();
+            if (value.contains (text)){
+                elementOfList.click ();
+
+            }
+        }
+    }
+
 }
 
 

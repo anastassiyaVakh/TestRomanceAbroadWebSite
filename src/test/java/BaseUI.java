@@ -17,6 +17,8 @@ public class BaseUI {
     MainPage mainPage;
     MediaPage mediaPage;
     SearchPage searchPage;
+    TourToUkrainePage tourToUkrainePage;
+    GiftsPage giftsPage;
 
 
 
@@ -55,6 +57,8 @@ public class BaseUI {
         mainPage = new MainPage(driver, wait);
         mediaPage = new MediaPage(driver, wait);
         searchPage = new SearchPage(driver, wait);
+        tourToUkrainePage = new TourToUkrainePage (driver,wait);
+        giftsPage = new GiftsPage (driver,wait);
         driver.manage().window().maximize();
         driver.get(mainUrl);
     }
