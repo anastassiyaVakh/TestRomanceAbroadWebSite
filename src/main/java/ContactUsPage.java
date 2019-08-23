@@ -21,7 +21,7 @@ public class ContactUsPage extends BaseActions {
         driver.findElement(Locators.LIST_REASON).click ();
 
         WebElement dropdownListReason = driver.findElement(Locators.LIST_REASON);
-        getDropDownListByIndex (dropdownListReason, 2);
+        getDropDownListByIndex(dropdownListReason, 2);
 
         driver.findElement (Locators.TEXT_FIELD_USER_NAME_CONTACT_US).sendKeys (nickname);
         driver.findElement (Locators.TEXT_FIELD_EMAIL_CONTACT_US).sendKeys (email);

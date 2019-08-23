@@ -1,3 +1,4 @@
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,13 +10,11 @@ public class MediaTests extends BaseUI {
 
     @Test
     public  void TestMediaPage (){
-
+        wait.until (ExpectedConditions.elementToBeClickable (Locators.LINK_MEDIA));
         driver.findElement(Locators.LINK_MEDIA).click();
         currentUrlMedia = driver.getCurrentUrl();
         System.out.println(currentUrlMedia);
         Assert.assertEquals(currentUrlMedia, Data.expectedUrlMedia);
-
-
 
         List<WebElement> filters = driver.findElements(Locators.GALLERY_FILTERS);
         System.out.println(filters.size());
@@ -29,8 +28,6 @@ public class MediaTests extends BaseUI {
             filters = driver.findElements (Locators.GALLERY_FILTERS);
 
             mediaPage.mediaSearchTest();
-
-
         }
 
     }

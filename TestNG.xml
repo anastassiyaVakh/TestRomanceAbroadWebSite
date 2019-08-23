@@ -1,6 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TestSuite" parallel="none" >
+
     <test name="IETestCases">
+
         <parameter name="browser" value="ie"/>
         <classes>
             <class name ="MediaTests"/>
@@ -18,4 +20,29 @@
             <class name ="MediaTests"/>
         </classes>
     </test>
+
+    <test name="ChromeTestCases">
+
+        <parameter name="browser" value="chrome"/>
+
+        <groups>
+            <run>
+                <exclude name="ie"  />
+                <include name="admin"  />
+                <include name="user"  />
+            </run>
+        </groups>
+        <classes>
+            <class name ="SearchTests">
+                <methods>
+                    <include name=".*Web.*"/>
+                    <include name=".*Search.*"/>
+                    <exclude name=".*List.*"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+
 </suite>

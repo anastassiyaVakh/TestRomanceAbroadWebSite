@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.testng.asserts.SoftAssert;
 
 import java.lang.reflect.Method;
 
@@ -20,10 +21,11 @@ public class BaseUI {
     TourToUkrainePage tourToUkrainePage;
     GiftsPage giftsPage;
     ContactUsPage contactUsPage;
+    SoftAssert softAssert = new SoftAssert ();
 
 
 
-    @BeforeMethod
+    @BeforeMethod (groups = {"user", "admin", "ie"}, alwaysRun = true)
     @Parameters("browser")
     public void setup (@Optional("chrome") String browser, Method method) throws Exception {
 
@@ -62,7 +64,7 @@ public class BaseUI {
         giftsPage = new GiftsPage (driver,wait);
         contactUsPage = new ContactUsPage (driver,wait);
         driver.manage().window().maximize();
-        driver.get(mainUrl);
+        driver.get(Data.mainUrl);
     }
 
     @AfterMethod
