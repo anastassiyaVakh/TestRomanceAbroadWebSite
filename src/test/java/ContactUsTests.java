@@ -4,6 +4,8 @@ public class ContactUsTests extends BaseUI {
     @Test
     public void testContactUsform(){
 
-        contactUsPage.contactUsTests ();
+        contactUsPage.contactUsTests (contactUsPage.generateNewNumber(Data.captcha, 5), Data.nickname,
+                Data.email, Data.subject);
+
     }
 }

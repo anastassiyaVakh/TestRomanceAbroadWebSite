@@ -59,4 +59,10 @@ public class Locators {
 
     //Contact Us Page
     public static final By LIST_REASON = By.xpath ("//select[@name='id_reason']");
+    public static final By TEXT_FIELD_USER_NAME_CONTACT_US = By.xpath (" //input[@name='user_name']");
+    public static final By TEXT_FIELD_EMAIL_CONTACT_US = By.xpath ("//input[@name='user_email']");
+    public static final By TEXT_FIELD_SUBJECT_CONTACT_US = By.xpath ("//input[@name='user_name']");
+    public static final By TEXT_FIELD_MESSAGE_CONTACT_US = By.xpath ("//textarea[@name='message']");
+    public static final By TEXT_FIELD_CAPTCHA = By.cssSelector ("#g-recaptcha-response");
+    public static final By BUTTON_SEND_CONTACT_US = By.xpath ("//input[@name='btn_save']");
 }

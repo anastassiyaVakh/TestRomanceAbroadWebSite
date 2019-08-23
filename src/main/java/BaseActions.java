@@ -104,4 +104,8 @@ public class BaseActions {
         Select select = new Select(element);
         select.selectByValue(value);
     }
+    public void getDropDownListByIndex(By locator, int index){
+        Select select = new Select(driver.findElement (locator));
+        select.selectByIndex (index);
+    }
 }
