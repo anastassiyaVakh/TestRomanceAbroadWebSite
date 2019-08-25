@@ -9,6 +9,12 @@ import java.util.List;
 public class MainPageTests extends BaseUI {
 
 
+    @Test
+    public void testSignIn(){
+        mainPage.signIn (Data.email, Data.password);
+
+    }
+
 	@Test
 	public void testRegistration() {
 		mainPage.clickJoinButton();
@@ -17,11 +23,6 @@ public class MainPageTests extends BaseUI {
 				Data.month, Data.day, Data.year, Data.city, Data.location);
 
 	}
-
-   @Test
-   public void testSignIn(){
-	   mainPage.signIn ();
-   }
 
 	@Test
 	public void test2() throws InterruptedException{

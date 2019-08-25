@@ -2,6 +2,8 @@ import org.openqa.selenium.By;
 
 public class Locators {
 
+    public static final By H1_TTILE = By.xpath ("//h1");
+
     //Media Page
     public static final By LINK_MEDIA = By.cssSelector("a[href='https://romanceabroad.com/media/index']");
     public static final By LINK_PHOTO = By.cssSelector("a[@href='https://romanceabroad.com/media/photo']");
@@ -16,7 +18,9 @@ public class Locators {
     public static final By IFRAME_VIDEO = By.xpath("//div[@class='video']//iframe");
     public static final By BUTTON_PLAY = By.xpath("//button[@class='ytp-large-play-button ytp-button']");
     public static final By BUTTON_LOGIN = By.cssSelector("#ajax_login_link");
-    public static final By TEXT_FIELD_LOGIN_EMAIL = By.cssSelector ("#email");
+    public static final By TEXT_FIELD_LOGIN_EMAIL = By.xpath ("//div[@class='lc-content-inner']//input[@id='email']");
+    public static final By TEXT_FIELD_LOGIN_PASSWORD = By.xpath ("//div[@class='lc-content-inner']//input[@id='password']");
+    public static final By BUTTON_SIGN_IN = By.xpath ("//button[@class='btn btn-primary']");
     public static final By IMAGES = By.xpath ("//a[@class='g-pic-border g-rounded']");
     //Registration
     public static final By BUTTON_REGISTRATION = By.cssSelector("#show-registration-block");
@@ -65,4 +69,8 @@ public class Locators {
     public static final By TEXT_FIELD_MESSAGE_CONTACT_US = By.xpath ("//textarea[@name='message']");
     public static final By TEXT_FIELD_CAPTCHA = By.cssSelector ("#g-recaptcha-response");
     public static final By BUTTON_SEND_CONTACT_US = By.xpath ("//input[@name='btn_save']");
+
+    //Blog Page
+    public static final By LINK_BLOG = By.xpath("//a[@href='https://romanceabroad.com/content/view/how-it-works']");
+    public static final By LINKS_OF_ARTICLES = By.xpath ("//ul[@class='nav nav-pills nav-stacked content-pages-tree']//li");
 }

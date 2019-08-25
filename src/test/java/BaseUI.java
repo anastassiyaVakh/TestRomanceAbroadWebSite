@@ -21,6 +21,7 @@ public class BaseUI {
     TourToUkrainePage tourToUkrainePage;
     GiftsPage giftsPage;
     ContactUsPage contactUsPage;
+    BlogPage blogPage;
     SoftAssert softAssert = new SoftAssert ();
 
 
@@ -63,6 +64,7 @@ public class BaseUI {
         tourToUkrainePage = new TourToUkrainePage (driver,wait);
         giftsPage = new GiftsPage (driver,wait);
         contactUsPage = new ContactUsPage (driver,wait);
+        blogPage = new BlogPage (driver,wait);
         driver.manage().window().maximize();
         driver.get(Data.mainUrl);
     }

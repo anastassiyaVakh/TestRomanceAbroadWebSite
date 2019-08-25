@@ -13,10 +13,14 @@ public class MainPage extends BaseActions {
         super(driver, wait);
     }
 
-    public void signIn(){
+    public void signIn(String email, String password){
         driver.findElement (Locators.BUTTON_LOGIN).click ();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.findElement (Locators.TEXT_FIELD_LOGIN_EMAIL).sendKeys (Data.email);
+        driver.findElement (Locators.TEXT_FIELD_LOGIN_EMAIL).sendKeys (email);
+        driver.findElement (Locators.TEXT_FIELD_LOGIN_PASSWORD).sendKeys (password);
+        driver.findElement (Locators.BUTTON_SIGN_IN).click ();
+        //driver.findElement (Locators.).isDisplayed ();
+
     }
 
     public void clickJoinButton() {
@@ -66,6 +70,11 @@ public class MainPage extends BaseActions {
 
             }
         }
+
+    }
+    public void clickTabBlog(){
+        driver.findElement (Locators.LINK_BLOG).click ();
+
     }
 
 }
