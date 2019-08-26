@@ -28,6 +28,7 @@ public class Data {
 
     //Contact Us Data
     public static final String subject = "My wife is ugly.Please help";
+    public static final String message = "Please help me";
     public static final String captcha = "25567";
 
 }

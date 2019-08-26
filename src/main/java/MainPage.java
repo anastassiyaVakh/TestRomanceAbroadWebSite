@@ -29,6 +29,7 @@ public class MainPage extends BaseActions {
 
     public void completeFirstPartOfRegistration( String email, String password) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        wait.until (ExpectedConditions.visibilityOf (driver.findElement (Locators.TEXT_FIELD_EMAIL)));
         driver.findElement(Locators.TEXT_FIELD_EMAIL).sendKeys(email);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.TEXT_FIELD_PASSWORD)));
         driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(password);
@@ -38,6 +39,7 @@ public class MainPage extends BaseActions {
     public void completeSecondPartOfRegistration(String nickname, String phone, String month, String day, String year, String city, String location) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement(Locators.BUTTON_NEXT).click();
+
         driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(nickname);
 
         driver.findElement(Locators.LIST_DAY).click();

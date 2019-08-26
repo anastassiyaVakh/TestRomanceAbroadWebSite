@@ -11,7 +11,7 @@ public class ContactUsPage extends BaseActions {
         super( driver,wait);
     }
 
-    public void contactUsTests(String nickname, String email, String subject, String captcha){
+    public void contactUsTests(String nickname, String email, String subject, String message, String captcha){
 
         driver.findElement (Locators.LINK_TOUR_TO_UKRAINE).click ();
         scrollToBottomOfPage ();
@@ -26,7 +26,7 @@ public class ContactUsPage extends BaseActions {
         driver.findElement (Locators.TEXT_FIELD_USER_NAME_CONTACT_US).sendKeys (nickname);
         driver.findElement (Locators.TEXT_FIELD_EMAIL_CONTACT_US).sendKeys (email);
         driver.findElement (Locators.TEXT_FIELD_SUBJECT_CONTACT_US).sendKeys (subject);
-        driver.findElement (Locators.TEXT_FIELD_MESSAGE_CONTACT_US).sendKeys (subject);
+        driver.findElement (Locators.TEXT_FIELD_MESSAGE_CONTACT_US).sendKeys (message);
         driver.findElement (Locators.TEXT_FIELD_CAPTCHA).sendKeys (captcha);
         driver.findElement (Locators.BUTTON_SEND_CONTACT_US).click ();
 

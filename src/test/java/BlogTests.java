@@ -9,21 +9,30 @@ public class BlogTests extends BaseUI {
     String titleOfArticle;
 
     @Test
-    public void testArticlesAndTitles(){
+    public void testArticlesAndTitles() {
         mainPage.clickTabBlog ();
         List<WebElement> linksOfArticles = blogPage.collectAllLinksOfArticles ();
 
-        for (int i = 0; i < linksOfArticles.size (); i ++) {
+        for (int i = 0; i < linksOfArticles.size (); i++) {
             WebElement link = linksOfArticles.get (i);
             nameOfArticle = link.getText ();
-            link.click ();
-            titleOfArticle = blogPage.getAnyTitle ();
-            Assert.assertEquals (nameOfArticle,titleOfArticle);
-            linksOfArticles = blogPage.collectAllLinksOfArticles ();
+            if (nameOfArticle.contains ("How it works")) {
+                continue;
+            }
+            else if (nameOfArticle.contains ("Kharkov dating agency")) {
+                continue;
+            }
+            else if (nameOfArticle.contains ("Kiev dating agency")) {
+            }
+            else {
+                link.click ();
+                titleOfArticle = blogPage.getAnyTitle ();
+                Assert.assertEquals (nameOfArticle, titleOfArticle);
+                linksOfArticles = blogPage.collectAllLinksOfArticles ();
 
+            }
         }
     }
-
 
 
 }
