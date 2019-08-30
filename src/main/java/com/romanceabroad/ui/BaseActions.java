@@ -1,3 +1,4 @@
+package com.romanceabroad.ui;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -179,5 +180,19 @@ public class BaseActions {
     public String getAnyTitle(){
         String title = driver.findElement (Locators.H1_TTILE).getText ();
         return title;
+    }
+
+
+    public void clickValueOfLists (By locator, String text){
+        List<WebElement>elements = driver.findElements (locator);
+        for (int i = 0; i <elements.size (); i ++){
+            WebElement elementOfList = elements.get(i);
+            String value = elementOfList.getText ();
+            if (value.contains (text)){
+                elementOfList.click ();
+
+            }
+        }
+
     }
 }

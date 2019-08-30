@@ -1,10 +1,11 @@
+package com.romanceabroad.ui;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MainPage extends BaseActions {
@@ -13,13 +14,16 @@ public class MainPage extends BaseActions {
         super(driver, wait);
     }
 
-    public void signIn(String email, String password){
+    public void clickSignInButton(){
         driver.findElement (Locators.BUTTON_LOGIN).click ();
+    }
+
+    public void signIn(String email, String password){
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement (Locators.TEXT_FIELD_LOGIN_EMAIL).sendKeys (email);
         driver.findElement (Locators.TEXT_FIELD_LOGIN_PASSWORD).sendKeys (password);
         driver.findElement (Locators.BUTTON_SIGN_IN).click ();
-        //driver.findElement (Locators.).isDisplayed ();
+        //driver.findElement (com.romanceabroad.ui.Locators.).isDisplayed ();
 
     }
 
@@ -62,21 +66,40 @@ public class MainPage extends BaseActions {
         }
     }
 
-    public void clickValueOfLists (By locator, String text){
-        List<WebElement>elements = driver.findElements (locator);
-        for (int i = 0; i <elements.size (); i ++){
-            WebElement elementOfList = elements.get(i);
-            String value = elementOfList.getText ();
-            if (value.contains (text)){
-                elementOfList.click ();
-
-            }
-        }
-
-    }
     public void clickTabBlog(){
         driver.findElement (Locators.LINK_BLOG).click ();
 
+    }
+
+    public void clickLinkSearch(){
+        driver.findElement(Locators.LINK_SEARCH).click();
+    }
+
+    public void clickLinkGifts(){
+        driver.findElement(Locators.LINK_GIFTS).click();
+    }
+
+    public void clickLinkPhotos(){
+        driver.findElement (Locators.LINK_MEDIA).click ();
+    }
+
+    public void clickLinkContactUs(){
+        driver.findElement (Locators.LINK_TOUR_TO_UKRAINE).click ();
+        scrollToBottomOfPage ();
+        driver.findElement (Locators.LINK_CONTACT_US).click ();
+    }
+
+    public int verifyIFrameSizeMainPage(){
+        int size = driver.findElements(By.xpath("//iframe")).size();
+        System.out.println(size + "iframe");
+        return size;
+    }
+
+    public void verifyIFrameOnMainPage(){
+    WebElement element = driver.findElement(Locators.IFRAME_VIDEO);
+    driver.switchTo().frame(element);
+    performClick(Locators.BUTTON_PLAY);
+    driver.switchTo().defaultContent();
     }
 
 }

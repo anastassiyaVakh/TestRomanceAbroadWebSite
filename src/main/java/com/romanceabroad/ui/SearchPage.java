@@ -1,5 +1,8 @@
+package com.romanceabroad.ui;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchPage extends BaseActions {
@@ -21,4 +24,13 @@ public class SearchPage extends BaseActions {
       driver.findElement(Locators.PROFILE).click();
 
   }
-}
+
+  public void ageTableIsDisplayed(){
+      wait.until (ExpectedConditions.visibilityOf (driver.findElement (Locators.SEARCH_FILTERS_AGE)));
+
+          System.out.println ("Table is dispalyed");
+      }
+
+
+  }
+

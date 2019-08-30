@@ -1,3 +1,5 @@
+package com.romanceabroad.ui;
+
 public class Data {
     //Main page data
     public static final String mainUrl = "https://romanceabroad.com/";
@@ -26,9 +28,10 @@ public class Data {
     public static final String expectedUrlGifts = "https://romanceabroad.com/store/category-sweets";
     public static final String gift = "teddy";
 
-    //Contact Us Data
+    //Contact Us com.romanceabroad.ui.Data
     public static final String subject = "My wife is ugly.Please help";
     public static final String message = "Please help me";
     public static final String captcha = "25567";
-
+    // Blog data
+    public static final String expectedUrlBlog = "https://romanceabroad.com/content/view/blog";
 }

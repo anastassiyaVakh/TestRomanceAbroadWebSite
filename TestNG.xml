@@ -5,19 +5,19 @@
 
         <parameter name="browser" value="ie"/>
         <classes>
-            <class name ="MediaTests"/>
+            <class name ="com.romanceabroad.ui.MediaTests"/>
         </classes>
     </test>
     <test name="FirefoxTestCases">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name ="MediaPage"/>
+            <class name ="com.romanceabroad.ui.MediaPage"/>
         </classes>
     </test>
     <test name="ChromeTestCases">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name ="MediaTests"/>
+            <class name ="com.romanceabroad.ui.MediaTests"/>
         </classes>
     </test>
 
@@ -33,7 +33,7 @@
             </run>
         </groups>
         <classes>
-            <class name ="SearchTests">
+            <class name ="com.romanceabroad.ui.SearchTests">
                 <methods>
                     <include name=".*Web.*"/>
                     <include name=".*Search.*"/>
@@ -44,7 +44,7 @@
 
     </test>-->
 
-  <!--  <test name="ChromeTestCases">
+  <!--  <test name="ChromeTestCases1">
         <parameter name="browser" value="chrome"/>
 
         <groups>
@@ -55,7 +55,7 @@
             </run>
         </groups>
         <classes>
-            <class name ="SearchTests">
+            <class name ="com.romanceabroad.ui.SearchTests">
                 <methods>
                     <include name=".*TestCase12.*"/>
                     <include name=".*TestCase11.*"/>
@@ -70,7 +70,7 @@
     <test name="ChromeTestCases2">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name ="MainPageTests">
+            <class name ="com.romanceabroad.ui.MainPageTests">
 
             </class>
         </classes>
@@ -80,7 +80,7 @@
     <test name="FirefoxTestCases">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name ="MainPageTests"/>
+            <class name ="com.romanceabroad.ui.MainPageTests"/>
         </classes>
     </test>
 

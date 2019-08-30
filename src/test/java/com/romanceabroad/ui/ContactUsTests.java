@@ -1,3 +1,5 @@
+package com.romanceabroad.ui;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -21,7 +23,9 @@ public class ContactUsTests extends BaseUI {
     @Test(dataProvider = "ContactUs")
     public void testContactUsform(String nickname, String email, String subject, String message){
 
-        contactUsPage.contactUsTests (contactUsPage.generateNewNumber(Data.captcha, 5), nickname,
+        mainPage.clickLinkContactUs ();
+        contactUsPage.contactUsSelectReason ();
+        contactUsPage.contactUsCompleteForm (contactUsPage.generateNewNumber(Data.captcha, 5), nickname,
                 email, subject, message);
 
     }

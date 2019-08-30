@@ -1,3 +1,5 @@
+package com.romanceabroad.ui;
+
 import org.openqa.selenium.By;
 
 public class Locators {
@@ -6,15 +8,15 @@ public class Locators {
 
     //Media Page
     public static final By LINK_MEDIA = By.cssSelector("a[href='https://romanceabroad.com/media/index']");
-    public static final By LINK_PHOTO = By.cssSelector("a[@href='https://romanceabroad.com/media/photo']");
-    public static final By LINK_VIDEO = By.cssSelector("a[@href='https://romanceabroad.com/media/video]");
-    public static final By LINK_ALBUMS = By.cssSelector("a[@href='https://romanceabroad.com/media/albums]");
+    public static final By LINK_PHOTO = By.cssSelector("a[href='https://romanceabroad.com/media/photo']");
+    public static final By LINK_VIDEO = By.cssSelector("a[href='https://romanceabroad.com/media/video']");
+    public static final By LINK_ALBUMS = By.cssSelector("a[href='https://romanceabroad.com/media/albums']");
     public static final By GALLERY_FILTERS = By.xpath ("//ul[@id='gallery_filters']//li");
 
     public static final By LINK_JOIN_TODAY = By.xpath ("//div[@class='col-lg-12 text-center']//a[@href='#']");
     //Main Page
     public static final By NAVIGATION_MENU = By.xpath("//ul[@class='navbar-nav']//li");
-    public static final By TITLE_OF_PAGE = By.cssSelector("//hi");
+    public static final By TITLE_OF_PAGE = By.cssSelector("//h1");
     public static final By IFRAME_VIDEO = By.xpath("//div[@class='video']//iframe");
     public static final By BUTTON_PLAY = By.xpath("//button[@class='ytp-large-play-button ytp-button']");
     public static final By BUTTON_LOGIN = By.cssSelector("#ajax_login_link");
@@ -22,6 +24,7 @@ public class Locators {
     public static final By TEXT_FIELD_LOGIN_PASSWORD = By.xpath ("//div[@class='lc-content-inner']//input[@id='password']");
     public static final By BUTTON_SIGN_IN = By.xpath ("//button[@class='btn btn-primary']");
     public static final By IMAGES = By.xpath ("//a[@class='g-pic-border g-rounded']");
+
     //Registration
     public static final By BUTTON_REGISTRATION = By.cssSelector("#show-registration-block");
     public static final By BUTTON_NEXT = By.xpath("//button[@data-action='next-page'][text()='Next']");
@@ -47,6 +50,7 @@ public class Locators {
     public static final By DROP_DOWN_LIST_SORT_BY_MIN_AGE = By.xpath("//select[@id='age_min']");
     public static final By DROP_DOWN_LIST_SORT_BY_MAX_AGE = By.cssSelector ("select#age_max");
     public static final By BUTTON_SEARCH = By.cssSelector("#main_search_button_user_advanced");
+    public static final By SEARCH_FILTERS_AGE = By.cssSelector ("#main_search_form_user_advanced");
 
     //Tours Page
     public static final By LINK_TOUR_TO_UKRAINE = By.xpath("//a[@href='https://romanceabroad.com/store/sweets/20-tour_to_ukraine']");

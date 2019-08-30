@@ -1,3 +1,6 @@
+package com.romanceabroad.ui;
+
+import com.romanceabroad.ui.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -59,8 +62,8 @@ public class BaseUI {
 
         wait = new WebDriverWait(driver, 20);
         mainPage = new MainPage(driver, wait);
-        mediaPage = new MediaPage(driver, wait);
-        searchPage = new SearchPage(driver, wait);
+        mediaPage = new MediaPage (driver, wait);
+        searchPage = new SearchPage (driver, wait);
         tourToUkrainePage = new TourToUkrainePage (driver,wait);
         giftsPage = new GiftsPage (driver,wait);
         contactUsPage = new ContactUsPage (driver,wait);

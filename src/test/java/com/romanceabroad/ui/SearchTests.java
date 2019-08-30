@@ -1,3 +1,6 @@
+package com.romanceabroad.ui;
+
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,12 +16,14 @@ public class SearchTests extends BaseUI {
 
     public void testSearchPageTestCase12 () {
         Assert.assertTrue(driver.findElement (Locators.LINK_SEARCH).isDisplayed ()," Element is displayed");
-        driver.findElement(Locators.LINK_SEARCH).click();
+        mainPage.clickLinkSearch ();
         currentUrlSearch = driver.getCurrentUrl();
         System.out.println(currentUrlSearch);
-        //Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
+        //Assert.assertEquals(currentUrlSearch, com.romanceabroad.ui.Data.expectedUrlSearch);
         softAssert.assertEquals (currentUrlSearch, Data.expectedUrlSearch, " Url is wrong");
-        searchPage.searchForWomenTest ();
+        WebElement dropdownListSortBy = driver.findElement (Locators.DROP_DOWN_LIST_SORT_BY);
+        searchPage.getDropDownListByValue (dropdownListSortBy, "date_created");
+        //searchPage.searchForWomenTest ();
         softAssert.assertAll ();
 
     }
@@ -30,7 +35,8 @@ public class SearchTests extends BaseUI {
 
     @Test(priority = 1, enabled = testCase11, groups = {"user", "admin"})
     public void selectRandomDropDownListTestCase11 (){
-        driver.findElement (Locators.LINK_SEARCH).click ();
+        mainPage.clickLinkSearch ();
+        searchPage.ageTableIsDisplayed ();
         int sizeOfDropDownListSortBy = searchPage.getSizeDropDownList (Locators.DROP_DOWN_LIST_SORT_BY_MAX_AGE);
         System.out.println (sizeOfDropDownListSortBy);
         for (int i = 0; i < 2; i++){
@@ -40,7 +46,8 @@ public class SearchTests extends BaseUI {
     }
     @Test
     public void selectRandomDropDownList(){
-        driver.findElement (Locators.LINK_SEARCH).click ();
+        mainPage.clickLinkSearch ();
+
         int sizeOfDropDownListSortBy = searchPage.getSizeDropDownList (Locators.DROP_DOWN_LIST_SORT_BY_MIN_AGE);
         System.out.println (sizeOfDropDownListSortBy);
         for (int i = 0; i < sizeOfDropDownListSortBy; i++){
@@ -48,4 +55,5 @@ public class SearchTests extends BaseUI {
             mainPage.javaWaitSec (3);
         }
     }
+
 }

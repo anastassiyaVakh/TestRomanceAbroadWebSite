@@ -1,3 +1,5 @@
+package com.romanceabroad.ui;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,6 +9,13 @@ import java.util.List;
 public class BlogTests extends BaseUI {
     String nameOfArticle;
     String titleOfArticle;
+
+    @Test
+    public void testBlogPage(){
+        String blogLink = blogPage.verifyBlogLinkIsDisplayed ();
+        Assert.assertEquals (blogLink, Data.expectedUrlBlog);
+        driver.navigate ().to (mainUrl);
+    }
 
     @Test
     public void testArticlesAndTitles() {

@@ -1,3 +1,5 @@
+package com.romanceabroad.ui;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
@@ -11,10 +13,44 @@ import java.util.List;
 
 public class MainPageTests extends BaseUI {
 
+	@Test
+	public void testSignIn(){
+		mainPage.clickSignInButton ();
+		mainPage.javaWaitSec (5);
+		mainPage.signIn (Data.email, Data.password);
+
+	}
+
+	@DataProvider(name= "Registration2")
+	public static Object[][] testRegistration2(){
+		return new Object[][]{
+				{"11@gmail.com", 3, true},
+				{"12@yahooo.com", 0, false},
+				{"13@hotmail.com", 4, true},
+		};
+	}
+
+	@Test(dataProvider = "Registration2")
+	public void testRegistration2(String email, int lenght, boolean requirement) {
+
+		System.out.println (email);
+		mainPage.clickJoinButton();
+		if (requirement) {
+			mainPage.completeFirstPartOfRegistration (email, Data.password);
+		}else {
+			System.out.println ("email is wrong");
+
+
+		}
+		mainPage.completeSecondPartOfRegistration(mainPage.generateNewNumber(Data.nickname, lenght), Data.phone,
+				Data.month, Data.day,Data.year,Data.city,Data.location);
+
+	}
+
     @DataProvider(name = "Registration")
-	public static Object[][] testRegistration2() throws Exception{
+	public static Object[][] testRegistration() throws Exception{
 		ArrayList<Object[]>out = new ArrayList<> ();
-		Files.readAllLines (Paths.get ("Registration.txt")).stream ().forEach (s -> {
+		Files.readAllLines (Paths.get ("com.romanceabroad.ui.Registration.txt")).stream ().forEach (s -> {
 
 			String[] data = s.split (",");
 			out.add (new Object[]{data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]});
@@ -22,12 +58,6 @@ public class MainPageTests extends BaseUI {
 		return  out.toArray (new Object[out.size ()][]);
 	}
 
-
-	@Test
-    public void testSignIn(){
-        mainPage.signIn (Data.email, Data.password);
-
-    }
 
 	@Test(dataProvider = "Registration")
 	public void testRegistration(String email, String password, String day, String month, String year, String phone, String city, String location ) {
@@ -44,6 +74,14 @@ public class MainPageTests extends BaseUI {
 		WebElement ele =driver.findElement(Locators.IFRAME_VIDEO);
 		driver.switchTo().frame(ele);
 		driver.findElement(Locators.BUTTON_PLAY).click();
+	}
+
+	@Test
+	public void testIFrame(){
+		int numberOfIFrames = mainPage.verifyIFrameSizeMainPage();
+		Assert.assertTrue(numberOfIFrames > 0);
+		mainPage.verifyIFrameOnMainPage();
+
 	}
 
    @Test
@@ -109,6 +147,17 @@ public class MainPageTests extends BaseUI {
             mainTabs = driver.findElements (By.xpath ("//ul[@class='navbar-nav']//li/a"));
         }
     }
+    @Test
+	public void findTabSearch(){
+		WebElement tabSearch = driver.findElement (Locators.LINK_SEARCH);
+		if (tabSearch.getText ().contains ("PRETTY WOMEN")) {
+			tabSearch.click ();
+		}else {
+			Assert.fail("We can't find Pretty Women tab");
+		}
+
+	}
+
 
 }
 

@@ -1,4 +1,5 @@
-import org.openqa.selenium.support.ui.ExpectedConditions;
+package com.romanceabroad.ui;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,12 +10,20 @@ public class MediaTests extends BaseUI {
     String currentUrlMedia;
 
     @Test
-    public  void TestMediaPage (){
-        wait.until (ExpectedConditions.elementToBeClickable (Locators.LINK_MEDIA));
-        driver.findElement(Locators.LINK_MEDIA).click();
+    public  void testMediaPage (){
+        mainPage.clickLinkPhotos ();
+        mainPage.javaWaitSec (5);
         currentUrlMedia = driver.getCurrentUrl();
         System.out.println(currentUrlMedia);
         Assert.assertEquals(currentUrlMedia, Data.expectedUrlMedia);
+
+        mediaPage.searchForPhotosTest ();
+        }
+
+
+    @Test
+    public void printMediaFilters(){
+        mainPage.clickLinkPhotos ();
 
         List<WebElement> filters = driver.findElements(Locators.GALLERY_FILTERS);
         System.out.println(filters.size());
@@ -27,8 +36,7 @@ public class MediaTests extends BaseUI {
             driver.get(currentUrlMedia);
             filters = driver.findElements (Locators.GALLERY_FILTERS);
 
-            mediaPage.mediaSearchTest();
-        }
+    }
 
     }
 

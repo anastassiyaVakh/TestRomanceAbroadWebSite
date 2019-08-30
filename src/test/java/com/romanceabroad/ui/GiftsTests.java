@@ -1,3 +1,5 @@
+package com.romanceabroad.ui;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -7,7 +9,7 @@ public class GiftsTests extends BaseUI {
     @Test
     public  void testGiftSearch (){
 
-        driver.findElement(Locators.LINK_GIFTS).click();
+        mainPage.clickLinkGifts ();
         currentUrlGifts = driver.getCurrentUrl();
         System.out.println(currentUrlGifts);
         Assert.assertEquals(currentUrlGifts, Data.expectedUrlGifts);
